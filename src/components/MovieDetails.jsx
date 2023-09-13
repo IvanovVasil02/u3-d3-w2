@@ -38,13 +38,20 @@ const MovieDetails = (props) => {
 
   return (
     <>
+      {thereIsErrors && <Alert variant={"danger"}>There was an error loading the data</Alert>}
+      {isLoading && (
+        <Container>
+          <Row>
+            <Col xs={12} className='d-flex justify-content-center mt-5'>
+              <Spinner animation='border' variant='danger' />
+            </Col>
+          </Row>
+        </Container>
+      )}
       {selectedMovie && (
         <Container>
           <Row>
             <Col xs={12}>
-              {thereIsErrors && <Alert variant={"danger"}>There was an error loading the data</Alert>}
-              {isLoading && <Spinner animation='border' variant='danger' className='ms-5' />}
-
               <Card className='mt-4'>
                 <Row className='g-0'>
                   <Col xs={4}>
