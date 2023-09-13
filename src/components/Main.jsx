@@ -39,17 +39,17 @@ class ContainerExample extends Component {
             </Col>
           </Row>
           <h5>Trending Now</h5>
-          <Row className='row-cols-4 row-cols-lg-5 g-3 mb-4 overflow-hidden'>
+          <Row className='row-cols-4 row-cols-lg-5 g-3 mb-4 flex-nowrap overflow-hidden'>
             <MovieList search='Harry Potter' />
           </Row>
 
           <h5>Watch Again</h5>
-          <Row className='row-cols-4 row-cols-lg-5 g-3 mb-4 overflow-hidden'>
+          <Row className='row-cols-4 row-cols-lg-5 g-3 mb-4 flex-nowrap overflow-hidden'>
             <MovieList search='Avatar' />
           </Row>
 
           <h5>New Releseas</h5>
-          <Row className='row-cols-4 row-cols-lg-5 g-3 mb-4 overflow-hidden'>
+          <Row className='row-cols-4 row-cols-lg-5 g-3 mb-4 flex-nowrap overflow-hidden'>
             <MovieList search='Tokyo Ghoul' />
           </Row>
 
