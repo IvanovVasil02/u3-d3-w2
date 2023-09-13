@@ -8,49 +8,47 @@ import { BsFillGridFill, BsFillGrid3X3GapFill } from "react-icons/bs";
 import MovieList from "./MovieList";
 import MyFooter from "./MyFooter";
 import SettingUser from "./SettingUser";
-import { Component } from "react";
+import { useParams } from "react-router-dom";
 
-class ContainerExample extends Component {
-  render() {
-    return (
-      <>
-        <Container fluid id='main'>
-          <Row>
-            <Col className='d-flex align-items-center'>
-              <h1 className='mb-md-3 flex-nowrap'>Movies</h1>
+const Movies = (props) => {
+  let params = useParams();
 
-              <Form.Select
-                aria-label='Default select example'
-                className='w-auto language-select  ms-1 ms-md-4 bg-black text-white rounded-0 me-1 px-2 py-1 px-md-4'
-              >
-                <option value='1'>English</option>
-                <option value='2'>Italian</option>
-                <option value='3'>Spanish</option>
-              </Form.Select>
+  return (
+    <>
+      <Container fluid id='main'>
+        <Row>
+          <Col className='d-flex align-items-center'>
+            <h1 className='mb-md-3 flex-nowrap'>Movies</h1>
 
-              <ButtonGroup aria-label='Basic example' className='h-50 ms-auto align-items-center'>
-                <Button variant='outline-secondary'>
-                  <BsFillGridFill />
-                </Button>
-                <Button variant='outline-secondary'>
-                  <BsFillGrid3X3GapFill />
-                </Button>
-              </ButtonGroup>
-            </Col>
-          </Row>
+            <Form.Select
+              aria-label='Default select example'
+              className='w-auto language-select  ms-1 ms-md-4 bg-black text-white rounded-0 me-1 px-2 py-1 px-md-4'
+            >
+              <option value='1'>English</option>
+              <option value='2'>Italian</option>
+              <option value='3'>Spanish</option>
+            </Form.Select>
 
-          <MovieList search='Harry Potter' />
+            <ButtonGroup aria-label='Basic example' className='h-50 ms-auto align-items-center'>
+              <Button variant='outline-secondary'>
+                <BsFillGridFill />
+              </Button>
+              <Button variant='outline-secondary'>
+                <BsFillGrid3X3GapFill />
+              </Button>
+            </ButtonGroup>
+          </Col>
+        </Row>
 
-          <MovieList search='Avatar' />
+        <Row className='row-cols-4 row-cols-lg-5 g-3 mb-4'>
+          <MovieList search={params.movieName} />
+        </Row>
 
-          <MovieList search='Tokyo Ghoul' />
+        <MyFooter />
+      </Container>
+      <SettingUser className='d-none' />
+    </>
+  );
+};
 
-          <MyFooter />
-        </Container>
-        <SettingUser className='d-none' />
-      </>
-    );
-  }
-}
-
-export default ContainerExample;
+export default Movies;

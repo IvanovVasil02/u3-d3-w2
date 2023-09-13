@@ -1,4 +1,4 @@
-import { Alert, Card, Col, Row, Spinner } from "react-bootstrap";
+import { Alert, Card, Col, Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -32,7 +32,7 @@ const MovieCarousel = (props) => {
   }, []);
 
   return (
-    <Row className='row-cols-4 row-cols-lg-5 g-3 flex-nowrap overflow-hidden mb-4'>
+    <>
       {thereIsErrors && <Alert variant={"danger"}>There was an error loading the data</Alert>}
       {isLoading && <Spinner animation='border' variant='danger' className='ms-5' />}
       {movieArray.map((movie, index) => (
@@ -44,7 +44,7 @@ const MovieCarousel = (props) => {
           </Link>
         </Col>
       ))}
-    </Row>
+    </>
   );
 };
 
